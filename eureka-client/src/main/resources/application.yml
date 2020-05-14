@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+#  instance:
+#    prefer-ip-address: true
+#    hostname: localhost
+spring:
+  application:
+    name: eureka-client
+
+
+---
+
+spring:
+  profiles: peer2
+
+server:
+  port: 8081
+
+eureka:
+  client:
+    service-url: http://localhost:8761/eureka/
