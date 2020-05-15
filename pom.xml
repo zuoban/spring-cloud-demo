@@ -12,6 +12,8 @@
         <module>eureka-server</module>
         <module>producer</module>
         <module>consumer</module>
+        <module>consul-client</module>
+        <module>consul-consumer</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

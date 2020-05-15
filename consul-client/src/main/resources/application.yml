@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: consul-client
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        register: true
+        instance-id: ${spring.application.name}-${spring.cloud.client.ip-address}-${server.port}
+        service-name: ${spring.application.name}
+        port: ${server.port}
+        health-check-path: /actuator/health
+        health-check-interval: 15s
+        prefer-ip-address: true
+        ip-address: ${spring.cloud.client.ip-address}
+
+---
+spring:
+  profiles: 8081
+
+server:
+  port: 8081
