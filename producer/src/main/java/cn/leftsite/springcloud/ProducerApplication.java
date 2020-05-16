@@ -1,5 +1,6 @@
 package cn.leftsite.springcloud;
 
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +16,13 @@ public class ProducerApplication {
     @GetMapping
     public String home() {
         return "hello world!" + serverPort;
+    }
+
+    @SneakyThrows
+    @GetMapping("/timeout")
+    public String timeout() {
+        Thread.sleep(2000);
+        return "producer!" + serverPort;
     }
 
     public static void main(String[] args) {
