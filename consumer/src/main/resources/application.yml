@@ -14,3 +14,12 @@ eureka:
 feign:
   hystrix:
     enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,hystrix.stream
+turbine:
+  appConfig: consumer
+  clusterNameExpression: "'default'"
+
