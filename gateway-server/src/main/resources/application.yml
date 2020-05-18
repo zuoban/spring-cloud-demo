@@ -1,0 +1,30 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: gateway-server
+
+  cloud:
+    gateway:
+      routes:
+        - id: producer
+          uri: lb://producer
+          predicates:
+            #            - Path=/**
+            - Path=/producer/**
+          filters:
+            - RewritePath=/producer/(?<segment>.*),/$\{segment}
+          # 配置自动的根据微服务名称进行路由转发
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+
+

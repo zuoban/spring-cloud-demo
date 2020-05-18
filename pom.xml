@@ -15,6 +15,7 @@
         <module>consul-client</module>
         <module>consul-consumer</module>
         <module>zuul-server</module>
+        <module>gateway-server</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
