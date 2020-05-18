@@ -15,11 +15,23 @@ spring:
             - Path=/producer/**
           filters:
             - RewritePath=/producer/(?<segment>.*),/$\{segment}
-          # 配置自动的根据微服务名称进行路由转发
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
+            - name: RequestRateLimiter
+              args:
+                key-resolver: '#{@pathKeyResolver}'
+                redis-rate-limiter:
+                  # 令牌桶每秒填充速率
+                  replenishRate: 1
+                  # 令牌桶容量
+                  burstCapacity: 3
+#          # 配置自动的根据微服务名称进行路由转发
+#      discovery:
+#        locator:
+#          enabled: true
+#          lower-case-service-id: true
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
 
 eureka:
   client:
