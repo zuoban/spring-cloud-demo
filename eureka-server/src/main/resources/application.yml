@@ -8,3 +8,8 @@ eureka:
     fetch-registry: false
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+logging:
+  level:
+    root: info
+    org.springframework.web.servlet.DispatcherSevlet: debug
+    org.springframework.cloud.sleuth: debug
