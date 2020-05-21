@@ -3,17 +3,29 @@ server:
 spring:
   application:
     name: producer
+  zipkin:
+    sender:
+      type: rabbit
+  sleuth:
+    sampler:
+      probability: 1.0
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        retry:
+          enabled: true
+      direct:
+        retry:
+          enabled: true
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-  zipkin:
-    base-url: http://localhost:9411/
-    sender:
-      type: web
-  sleuth:
-    sampler:
-      probability: 1.0
 
 logging:
   level:
