@@ -16,6 +16,8 @@
         <module>consul-consumer</module>
         <module>zuul-server</module>
         <module>gateway-server</module>
+        <module>stream-producer</module>
+        <module>stream-consumer</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

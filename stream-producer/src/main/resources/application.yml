@@ -1,0 +1,20 @@
+server:
+  port: 7001
+
+spring:
+  application:
+    name: rabbitmq-producer
+
+  rabbitmq:
+    addresses: 127.0.0.1
+    username: guest
+    password: guest
+
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: zuoban-stream
+      binders:
+        defaultRabbit:
+          type: rabbit

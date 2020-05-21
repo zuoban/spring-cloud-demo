@@ -1,0 +1,16 @@
+server:
+  port: 7002
+
+spring:
+  application:
+    name: rabbitmq-consumer
+  rabbitmq:
+    addresses: 127.0.0.1
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: zuoban-stream
+      binders:
+        defaultRabbit:
+          type: rabbit
