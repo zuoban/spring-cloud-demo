@@ -15,6 +15,9 @@ spring:
       bindings:
         output:
           destination: zuoban-stream
+          producer:
+            partition-key-expression: payload
+            partition-count: 2
       binders:
         defaultRabbit:
           type: rabbit

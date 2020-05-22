@@ -11,17 +11,20 @@ spring:
       bindings:
         input:
           destination: zuoban-stream
-          group: group-1
-        inputOrder:
-          destination: mqTestOrder
-        outputOrder:
-          destination: mqTestOrder
+          group: group-2
+          consumer:
+            partitioned: true
       binders:
         defaultRabbit:
           type: rabbit
+      instance-count: 2
+      instance-index: 0
 
 ---
 spring:
   profiles: 7003
+  cloud:
+    stream:
+      instance-index: 1
 server:
   port: 7003
