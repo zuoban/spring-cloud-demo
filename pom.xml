@@ -18,6 +18,8 @@
         <module>gateway-server</module>
         <module>stream-producer</module>
         <module>stream-consumer</module>
+        <module>config-server</module>
+        <module>config-client</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
