@@ -11,6 +11,10 @@ spring:
       bindings:
         input:
           destination: zuoban-stream
+        inputOrder:
+          destination: mqTestOrder
+        outputOrder:
+          destination: mqTestOrder
       binders:
         defaultRabbit:
           type: rabbit
