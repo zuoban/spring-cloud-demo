@@ -1,0 +1,14 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: apollo-client
+
+
+apollo:
+  meta: http://localhost:8080
+  bootstrap:
+    enabled: true
+
+name: zhangsan
